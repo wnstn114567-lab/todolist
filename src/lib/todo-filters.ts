@@ -14,12 +14,12 @@ export function filterTodos(todos: TodoItem[], filter: TodoFilter) {
 
 export function getFilterLabel(filter: TodoFilter) {
   if (filter === "active") {
-    return "active";
+    return "진행 중";
   }
 
   if (filter === "completed") {
-    return "completed";
+    return "완료";
   }
 
-  return "all";
+  return "전체";
 }

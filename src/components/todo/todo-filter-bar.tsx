@@ -11,9 +11,9 @@ const filterOptions: Array<{
   label: string;
   value: TodoFilter;
 }> = [
-  { label: "All", value: "all" },
-  { label: "Active", value: "active" },
-  { label: "Completed", value: "completed" },
+  { label: "전체", value: "all" },
+  { label: "진행 중", value: "active" },
+  { label: "완료", value: "completed" },
 ];
 
 export function TodoFilterBar({
@@ -30,7 +30,7 @@ export function TodoFilterBar({
 
   return (
     <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-      <div className="inline-flex w-full flex-wrap gap-2 rounded-2xl border border-slate-200/80 bg-slate-50/85 p-1.5 lg:w-auto">
+      <div className="inline-flex w-full flex-wrap gap-2 rounded-[22px] border border-white/10 bg-white/[0.05] p-1.5 lg:w-auto">
         {filterOptions.map((option) => {
           const isActive = option.value === currentFilter;
 
@@ -42,16 +42,16 @@ export function TodoFilterBar({
               aria-pressed={isActive}
               className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition ${
                 isActive
-                  ? "bg-slate-950 text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)]"
-                  : "text-slate-600 hover:bg-white hover:text-slate-950"
+                  ? "bg-white text-slate-950 shadow-[0_12px_30px_rgba(0,0,0,0.22)]"
+                  : "text-slate-300 hover:bg-white/[0.07] hover:text-white"
               }`}
             >
               <span>{option.label}</span>
               <span
                 className={`rounded-full px-2 py-0.5 text-xs ${
                   isActive
-                    ? "bg-white/15 text-white"
-                    : "bg-white text-slate-500 ring-1 ring-slate-200"
+                    ? "bg-slate-900/10 text-slate-800"
+                    : "bg-white/[0.08] text-slate-300 ring-1 ring-white/8"
                 }`}
               >
                 {countByFilter[option.value]}
@@ -61,9 +61,8 @@ export function TodoFilterBar({
         })}
       </div>
 
-      <p className="text-sm leading-6 text-muted">
-        Switch between everything on the list, what is still in motion, and
-        what is already done.
+      <p className="text-sm leading-6 text-slate-400">
+        전체, 진행 중, 완료 상태를 빠르게 전환하며 필요한 항목만 집중해서 볼 수 있습니다.
       </p>
     </div>
   );

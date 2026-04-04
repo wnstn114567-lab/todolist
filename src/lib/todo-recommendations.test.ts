@@ -10,7 +10,7 @@ test("returns a helpful empty state when there are no todos", () => {
   assert.equal(recommendations.mostUrgentTask, null);
   assert.equal(recommendations.easiestQuickWin, null);
   assert.equal(recommendations.recommendedOrder.length, 0);
-  assert.equal(recommendations.emptyState?.title, "No todos to analyze");
+  assert.equal(recommendations.emptyState?.title, "분석할 할 일이 아직 없어요");
 });
 
 test("ignores completed todos and picks urgent, quick, and best-first tasks", () => {
@@ -39,6 +39,6 @@ test("returns an all-complete empty state when no active todos remain", () => {
 
   const recommendations = getTodoRecommendations(todos);
 
-  assert.equal(recommendations.emptyState?.title, "All caught up");
-  assert.match(recommendations.summary, /Everything on the list is complete/i);
+  assert.equal(recommendations.emptyState?.title, "지금은 모두 정리됐어요");
+  assert.match(recommendations.summary, /현재 목록은 모두 완료되었습니다/);
 });
