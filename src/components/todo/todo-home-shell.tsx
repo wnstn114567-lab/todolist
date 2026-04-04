@@ -76,7 +76,7 @@ export function TodoHomeShell() {
   }
 
   return (
-    <section className="mx-auto w-full max-w-5xl space-y-4">
+    <section className="mx-auto w-full max-w-5xl space-y-5">
       <TodoForm onAddTodo={handleAddTodo} />
 
       <section className="rounded-[34px] border border-white/10 bg-white/[0.05] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-6">
