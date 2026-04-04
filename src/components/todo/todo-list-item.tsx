@@ -30,7 +30,7 @@ export function TodoListItem({
                 : "border-slate-300 bg-white text-transparent hover:border-accent"
             }`}
           >
-            <span className="text-sm font-bold">✓</span>
+            <span className="text-sm font-bold">OK</span>
           </button>
 
           <div>

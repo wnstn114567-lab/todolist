@@ -1,18 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { TodoAiSuggestionCard } from "@/components/todo/todo-ai-suggestion-card";
 import { TodoForm } from "@/components/todo/todo-form";
 import { TodoList } from "@/components/todo/todo-list";
 import { sampleTodos } from "@/data/sample-todos";
+import { getTodoRecommendations } from "@/lib/todo-recommendations";
 import { addTodo, deleteTodo, toggleTodo } from "@/lib/todo-utils";
 
 export function TodoHomeShell() {
   const [todos, setTodos] = useState(sampleTodos);
+  const [hasRequestedSuggestions, setHasRequestedSuggestions] = useState(false);
 
   const completedCount = todos.filter((todo) => todo.completed).length;
   const remainingCount = todos.length - completedCount;
   const completionRate =
     todos.length === 0 ? 0 : Math.round((completedCount / todos.length) * 100);
+  const recommendations = hasRequestedSuggestions
+    ? getTodoRecommendations(todos)
+    : null;
 
   const stats = [
     {
@@ -42,6 +48,10 @@ export function TodoHomeShell() {
 
   function handleDeleteTodo(id: string) {
     setTodos((currentTodos) => deleteTodo(currentTodos, id));
+  }
+
+  function handleSuggestTodos() {
+    setHasRequestedSuggestions(true);
   }
 
   return (
@@ -111,6 +121,12 @@ export function TodoHomeShell() {
 
       <aside className="space-y-6">
         <TodoForm onAddTodo={handleAddTodo} />
+
+        <TodoAiSuggestionCard
+          recommendations={recommendations}
+          hasRequestedSuggestions={hasRequestedSuggestions}
+          onSuggest={handleSuggestTodos}
+        />
 
         <section className="rounded-[32px] border border-slate-200/80 bg-white/80 p-6 shadow-[0_20px_55px_rgba(15,23,42,0.06)] backdrop-blur">
           <h2 className="text-xl font-semibold text-slate-950">
