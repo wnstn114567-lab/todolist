@@ -30,8 +30,8 @@ export function TodoForm({ onAddTodo, importantTask }: TodoFormProps) {
       onSubmit={handleSubmit}
       className="mx-auto max-w-[980px] space-y-3 px-0 py-1 text-white sm:py-2"
     >
-      <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
-        <div className="space-y-2 text-center lg:pt-1">
+      <div className="grid gap-3 lg:grid-cols-[260px_minmax(0,1fr)_260px] lg:items-start">
+        <div className="space-y-2 pt-4 text-center lg:col-start-2 lg:pt-6 lg:justify-self-center">
           <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
             새 할 일 추가
           </h2>
@@ -40,7 +40,7 @@ export function TodoForm({ onAddTodo, importantTask }: TodoFormProps) {
           </span>
         </div>
 
-        <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-3 text-left shadow-[0_14px_34px_rgba(0,0,0,0.2)] lg:justify-self-end">
+        <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-3 text-left shadow-[0_14px_34px_rgba(0,0,0,0.2)] lg:col-start-3 lg:justify-self-end">
           <div className="flex items-center justify-between gap-3">
             <p className="text-xs font-semibold tracking-[0.18em] text-sky-200/85 uppercase">
               중요일정
