@@ -26,25 +26,20 @@ export function TodoForm({ onAddTodo }: TodoFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(30,36,49,0.92),rgba(16,20,29,0.94))] p-5 text-white shadow-[0_28px_100px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:p-6"
+      className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(30,36,49,0.92),rgba(16,20,29,0.94))] p-4 text-white shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-5"
     >
       <div className="flex items-center justify-between gap-3">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-200/80">
-            Quick Capture
-          </p>
-          <h2 className="mt-2 text-xl font-semibold">새 할 일 추가</h2>
-        </div>
-        <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
-          자동 저장
-        </div>
+        <h2 className="text-base font-semibold">새 할 일</h2>
+        <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-300">
+          Enter로 추가
+        </span>
       </div>
 
-      <label htmlFor="todo-title" className="mt-5 block text-sm text-slate-300">
+      <label htmlFor="todo-title" className="sr-only">
         할 일 제목
       </label>
 
-      <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row">
         <input
           id="todo-title"
           name="title"
@@ -57,13 +52,9 @@ export function TodoForm({ onAddTodo }: TodoFormProps) {
           type="submit"
           className="min-h-13 rounded-[22px] bg-[linear-gradient(180deg,#dbeafe,#93c5fd)] px-5 py-3 text-sm font-semibold text-slate-950 transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
         >
-          추가하기
+          추가
         </button>
       </div>
-
-      <p className="mt-3 text-sm leading-6 text-slate-300">
-        간단한 제목만 입력하면 됩니다. 추가, 완료 처리, 삭제, 새로고침 후 유지까지 지금 흐름 그대로 사용할 수 있습니다.
-      </p>
     </form>
   );
 }
