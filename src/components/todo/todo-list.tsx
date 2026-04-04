@@ -1,0 +1,32 @@
+import { TodoEmptyState } from "@/components/todo/todo-empty-state";
+import { TodoListItem } from "@/components/todo/todo-list-item";
+import type { TodoItem } from "@/types/todo";
+
+type TodoListProps = {
+  todos: TodoItem[];
+  onToggleTodo: (id: string) => void;
+  onDeleteTodo: (id: string) => void;
+};
+
+export function TodoList({
+  todos,
+  onToggleTodo,
+  onDeleteTodo,
+}: TodoListProps) {
+  if (todos.length === 0) {
+    return <TodoEmptyState />;
+  }
+
+  return (
+    <ul className="space-y-3">
+      {todos.map((todo) => (
+        <TodoListItem
+          key={todo.id}
+          todo={todo}
+          onToggleTodo={onToggleTodo}
+          onDeleteTodo={onDeleteTodo}
+        />
+      ))}
+    </ul>
+  );
+}

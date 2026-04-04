@@ -16,7 +16,7 @@ export function AppShell({ children }: AppShellProps) {
               Todo App
             </p>
             <p className="mt-1 text-sm text-slate-600">
-              Simple foundation for a focused v1.
+              Clean local-first task tracking for a focused v1.
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export function AppShell({ children }: AppShellProps) {
         <main className="relative z-10 flex-1">{children}</main>
 
         <footer className="relative z-10 mt-8 border-t border-slate-200/80 pt-4 text-sm text-slate-500">
-          Clean starter shell, ready for real todo features.
+          Core todo flows are built to stay readable and easy to extend.
         </footer>
       </div>
     </div>
