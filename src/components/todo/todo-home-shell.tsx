@@ -54,9 +54,8 @@ export function TodoHomeShell() {
   const filteredTodos = filterTodos(todos, currentFilter);
   const completionRate =
     todos.length === 0 ? 0 : Math.round((completedCount / todos.length) * 100);
-  const recommendations = hasRequestedSuggestions
-    ? getTodoRecommendations(todos)
-    : null;
+  const previewRecommendations = getTodoRecommendations(todos);
+  const recommendations = hasRequestedSuggestions ? previewRecommendations : null;
 
   function handleAddTodo(title: string) {
     setTodos((currentTodos) => addTodo(currentTodos, title));
@@ -77,7 +76,10 @@ export function TodoHomeShell() {
 
   return (
     <section className="mx-auto w-full max-w-5xl space-y-5">
-      <TodoForm onAddTodo={handleAddTodo} />
+      <TodoForm
+        onAddTodo={handleAddTodo}
+        importantTask={previewRecommendations.bestTaskFirst}
+      />
 
       <section className="rounded-[34px] border border-white/10 bg-white/[0.05] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-6">
         <div className="border-b border-white/8 pb-4">
