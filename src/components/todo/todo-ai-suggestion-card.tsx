@@ -36,13 +36,13 @@ export function TodoAiSuggestionCard({
   activeCount,
 }: TodoAiSuggestionCardProps) {
   return (
-    <section className="rounded-[30px] border border-white/8 bg-white/[0.03] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-xl">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <section className="rounded-[28px] border border-white/8 bg-white/[0.03] p-4 shadow-[0_20px_64px_rgba(0,0,0,0.22)] backdrop-blur-xl">
+      <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-accent">
             AI Assist
           </p>
-          <h2 className="mt-1 text-lg font-semibold text-white">
+          <h2 className="mt-1 text-base font-semibold text-white sm:text-lg">
             우선순위 추천
           </h2>
         </div>
@@ -56,7 +56,7 @@ export function TodoAiSuggestionCard({
         </button>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-300">
+      <div className="mt-2.5 flex flex-wrap gap-2 text-xs text-slate-300">
         <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1">
           분석 {todoCount}개
         </span>
@@ -66,11 +66,11 @@ export function TodoAiSuggestionCard({
       </div>
 
       {!hasRequestedSuggestions ? (
-        <p className="mt-4 text-sm text-slate-400">
+        <p className="mt-3 text-sm text-slate-400">
           필요할 때만 AI 추천을 확인하세요.
         </p>
       ) : recommendations?.emptyState ? (
-        <div className="mt-4 rounded-[24px] border border-dashed border-white/14 bg-white/[0.04] p-4">
+        <div className="mt-3 rounded-[22px] border border-dashed border-white/14 bg-white/[0.04] p-4">
           <h3 className="text-base font-semibold text-white">
             {recommendations.emptyState.title}
           </h3>
@@ -79,7 +79,7 @@ export function TodoAiSuggestionCard({
           </p>
         </div>
       ) : (
-        <div className="mt-4 space-y-4">
+        <div className="mt-3 space-y-3">
           <div className="grid gap-2 lg:grid-cols-3">
             {recommendationLabels.map((item) => {
               const recommendation = recommendations?.[item.key];
@@ -91,7 +91,7 @@ export function TodoAiSuggestionCard({
               return (
                 <article
                   key={item.key}
-                  className="rounded-[22px] border border-white/10 bg-black/20 p-4"
+                  className="rounded-[20px] border border-white/10 bg-black/20 p-3.5"
                 >
                   <span
                     className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ring-1 ${item.tone}`}
@@ -109,7 +109,7 @@ export function TodoAiSuggestionCard({
             })}
           </div>
 
-          <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
+          <div className="rounded-[22px] border border-white/10 bg-black/20 p-4">
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-sm font-semibold text-white">추천 순서</h3>
               <span className="text-xs text-slate-400">
@@ -121,7 +121,7 @@ export function TodoAiSuggestionCard({
               {recommendations?.recommendedOrder.map((item, index) => (
                 <li
                   key={item.id}
-                  className="flex gap-3 rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-3"
+                  className="flex gap-3 rounded-[18px] border border-white/8 bg-white/[0.04] px-3.5 py-2.5"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-xs font-semibold text-slate-950">
                     {index + 1}
@@ -136,7 +136,7 @@ export function TodoAiSuggestionCard({
               ))}
             </ol>
 
-            <p className="mt-3 text-sm leading-6 text-slate-400">
+            <p className="mt-2.5 text-sm leading-6 text-slate-400">
               {recommendations?.summary}
             </p>
           </div>

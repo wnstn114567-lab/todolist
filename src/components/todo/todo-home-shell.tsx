@@ -75,44 +75,44 @@ export function TodoHomeShell() {
   }
 
   return (
-    <section className="mx-auto w-full max-w-5xl space-y-5">
+    <section className="mx-auto w-full max-w-[980px] space-y-3 sm:space-y-4">
       <TodoForm
         onAddTodo={handleAddTodo}
         importantTask={previewRecommendations.bestTaskFirst}
       />
 
-      <section className="rounded-[34px] border border-white/10 bg-white/[0.05] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-6">
-        <div className="border-b border-white/8 pb-4">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="space-y-3">
+      <section className="rounded-[32px] border border-white/10 bg-white/[0.05] p-4 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-5">
+        <div className="border-b border-white/8 pb-3">
+          <div className="flex flex-col gap-3">
+            <div className="space-y-2.5">
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="text-xl font-semibold text-white">할 일</h2>
-                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-slate-300">
                   전체 {todos.length}
                 </span>
-                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-slate-300">
                   진행 중 {remainingCount}
                 </span>
-                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-slate-300">
                   완료 {completedCount}
                 </span>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="h-2 w-full max-w-44 rounded-full bg-white/[0.06]">
+              <div className="flex items-center gap-2.5">
+                <div className="h-1.5 w-full max-w-40 rounded-full bg-white/[0.06]">
                   <div
                     className="h-full rounded-full bg-[linear-gradient(90deg,#7dd3fc,#34d399)]"
                     style={{ width: `${completionRate}%` }}
                   />
                 </div>
-                <span className="text-sm text-slate-400">
+                <span className="text-xs text-slate-400 sm:text-sm">
                   완료율 {completionRate}%
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-3">
             <TodoFilterBar
               activeCount={remainingCount}
               completedCount={completedCount}
@@ -122,7 +122,7 @@ export function TodoHomeShell() {
           </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-3">
           <TodoList
             currentFilter={currentFilter}
             todos={filteredTodos}

@@ -12,8 +12,8 @@ export function TodoListItem({
   onDeleteTodo,
 }: TodoListItemProps) {
   return (
-    <li className="rounded-[24px] border border-white/10 bg-white/[0.045] p-4 shadow-[0_18px_48px_rgba(0,0,0,0.22)] transition hover:bg-white/[0.06] hover:shadow-[0_22px_56px_rgba(0,0,0,0.3)]">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <li className="rounded-[22px] border border-white/10 bg-white/[0.045] p-3.5 shadow-[0_16px_42px_rgba(0,0,0,0.22)] transition hover:bg-white/[0.06] hover:shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
+      <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex min-w-0 items-center gap-3">
           <button
             type="button"
@@ -34,7 +34,7 @@ export function TodoListItem({
           </button>
 
           <p
-            className={`min-w-0 text-base font-semibold leading-7 break-words ${
+            className={`min-w-0 text-base font-semibold leading-6 break-words ${
               todo.completed ? "text-slate-500 line-through" : "text-white"
             }`}
           >
@@ -55,7 +55,7 @@ export function TodoListItem({
           <button
             type="button"
             onClick={() => onDeleteTodo(todo.id)}
-            className="min-h-10 rounded-full border border-white/10 px-3 py-2 text-sm font-medium text-slate-300 transition hover:border-rose-400/30 hover:bg-rose-400/10 hover:text-rose-200"
+            className="min-h-9 rounded-full border border-white/10 px-3 py-2 text-sm font-medium text-slate-300 transition hover:border-rose-400/30 hover:bg-rose-400/10 hover:text-rose-200"
           >
             삭제
           </button>
