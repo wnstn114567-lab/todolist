@@ -8,9 +8,11 @@ export function AppShell({ children }: AppShellProps) {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0))]" />
+      <div className="pointer-events-none absolute left-[-8rem] top-20 h-64 w-64 rounded-full bg-teal-200/35 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-10 right-[-7rem] h-72 w-72 rounded-full bg-sky-200/30 blur-3xl" />
 
-      <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-6 sm:px-8 lg:px-10">
-        <header className="relative z-10 mb-8 flex items-center justify-between gap-4 rounded-full border border-white/70 bg-white/75 px-5 py-3 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur">
+      <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-4 sm:px-8 sm:py-6 lg:px-10">
+        <header className="relative z-10 mb-6 flex flex-col gap-4 rounded-[28px] border border-white/70 bg-white/78 px-5 py-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
               Todo App

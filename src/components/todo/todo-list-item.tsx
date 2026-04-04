@@ -12,7 +12,7 @@ export function TodoListItem({
   onDeleteTodo,
 }: TodoListItemProps) {
   return (
-    <li className="rounded-[28px] border border-slate-200/80 bg-white/90 p-4 shadow-[0_16px_40px_rgba(15,23,42,0.05)]">
+    <li className="rounded-[28px] border border-slate-200/80 bg-white/92 p-4 shadow-[0_16px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_48px_rgba(15,23,42,0.07)]">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-3">
           <button
@@ -24,18 +24,18 @@ export function TodoListItem({
             }
             aria-pressed={todo.completed}
             onClick={() => onToggleTodo(todo.id)}
-            className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition ${
+            className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition ${
               todo.completed
-                ? "border-emerald-500 bg-emerald-500 text-white"
+                ? "border-emerald-500 bg-emerald-500 text-white shadow-[0_8px_20px_rgba(16,185,129,0.25)]"
                 : "border-slate-300 bg-white text-transparent hover:border-accent"
             }`}
           >
-            <span className="text-sm font-bold">OK</span>
+            <span className="text-xs font-bold">✓</span>
           </button>
 
           <div>
             <p
-              className={`text-base font-semibold ${
+              className={`text-base font-semibold leading-7 ${
                 todo.completed ? "text-slate-400 line-through" : "text-slate-950"
               }`}
             >
@@ -60,7 +60,7 @@ export function TodoListItem({
           <button
             type="button"
             onClick={() => onDeleteTodo(todo.id)}
-            className="rounded-full border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 transition hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
+            className="min-h-10 rounded-full border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 transition hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
           >
             Delete
           </button>

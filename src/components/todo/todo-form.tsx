@@ -26,7 +26,7 @@ export function TodoForm({ onAddTodo }: TodoFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[30px] border border-slate-900/10 bg-slate-950 p-5 text-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]"
+      className="rounded-[30px] border border-slate-900/10 bg-[linear-gradient(180deg,#0f172a,#111827)] p-5 text-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]"
     >
       <div className="flex items-center justify-between gap-3">
         <div>
@@ -36,7 +36,7 @@ export function TodoForm({ onAddTodo }: TodoFormProps) {
           <h2 className="mt-2 text-xl font-semibold">Create a new task</h2>
         </div>
         <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
-          Local state
+          Persists locally
         </div>
       </div>
 
@@ -62,8 +62,8 @@ export function TodoForm({ onAddTodo }: TodoFormProps) {
       </div>
 
       <p className="mt-3 text-sm leading-6 text-slate-300">
-        Keep it simple: title only for v1, with fast add, toggle, and delete
-        actions.
+        Keep it simple: title only for v1, with fast add, toggle, delete, and
+        refresh-safe persistence.
       </p>
     </form>
   );

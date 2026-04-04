@@ -6,6 +6,8 @@ type TodoAiSuggestionCardProps = {
   recommendations: TodoRecommendations | null;
   hasRequestedSuggestions: boolean;
   onSuggest: () => void;
+  todoCount: number;
+  activeCount: number;
 };
 
 const recommendationLabels = [
@@ -30,9 +32,11 @@ export function TodoAiSuggestionCard({
   recommendations,
   hasRequestedSuggestions,
   onSuggest,
+  todoCount,
+  activeCount,
 }: TodoAiSuggestionCardProps) {
   return (
-    <section className="rounded-[32px] border border-slate-200/80 bg-white/80 p-6 shadow-[0_20px_55px_rgba(15,23,42,0.06)] backdrop-blur">
+    <section className="overflow-hidden rounded-[32px] border border-white/70 bg-white/88 p-6 shadow-[0_20px_55px_rgba(15,23,42,0.06)] backdrop-blur">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-sm font-semibold text-accent">AI planner</p>
@@ -54,8 +58,23 @@ export function TodoAiSuggestionCard({
         </button>
       </div>
 
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-4">
+          <p className="text-sm text-slate-500">Tasks analyzed</p>
+          <p className="mt-2 text-2xl font-semibold text-slate-950">
+            {todoCount}
+          </p>
+        </div>
+        <div className="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-4">
+          <p className="text-sm text-slate-500">Active candidates</p>
+          <p className="mt-2 text-2xl font-semibold text-slate-950">
+            {activeCount}
+          </p>
+        </div>
+      </div>
+
       {!hasRequestedSuggestions ? (
-        <div className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-slate-50/80 p-5">
+        <div className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-[linear-gradient(180deg,rgba(248,250,252,0.85),rgba(255,255,255,0.95))] p-5">
           <p className="text-sm font-medium text-slate-700">
             Run AI Suggest to pick a smart starting point from your current
             todos.
@@ -66,7 +85,7 @@ export function TodoAiSuggestionCard({
           </p>
         </div>
       ) : recommendations?.emptyState ? (
-        <div className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-slate-50/80 p-5">
+        <div className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-[linear-gradient(180deg,rgba(248,250,252,0.85),rgba(255,255,255,0.95))] p-5">
           <h3 className="text-lg font-semibold text-slate-950">
             {recommendations.emptyState.title}
           </h3>
@@ -76,7 +95,22 @@ export function TodoAiSuggestionCard({
         </div>
       ) : (
         <div className="mt-6 space-y-5">
-          <div className="grid gap-3">
+          <div className="rounded-[28px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(248,250,252,0.92),rgba(255,255,255,0.98))] p-4">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-950">
+                  Priority breakdown
+                </h3>
+                <p className="mt-1 text-sm leading-6 text-muted">
+                  Three quick reads help you decide where to start.
+                </p>
+              </div>
+              <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
+                Refreshed
+              </span>
+            </div>
+
+            <div className="mt-4 grid gap-3">
             {recommendationLabels.map((item) => {
               const recommendation = recommendations?.[item.key];
 
@@ -87,7 +121,7 @@ export function TodoAiSuggestionCard({
               return (
                 <article
                   key={item.key}
-                  className="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-4"
+                  className="rounded-3xl border border-slate-200/80 bg-white/90 p-4"
                 >
                   <span
                     className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ring-1 ${item.tone}`}
@@ -103,6 +137,7 @@ export function TodoAiSuggestionCard({
                 </article>
               );
             })}
+            </div>
           </div>
 
           <div className="rounded-3xl border border-slate-200/80 bg-white p-5">
