@@ -13,17 +13,17 @@ type TodoAiSuggestionCardProps = {
 const recommendationLabels = [
   {
     key: "bestTaskFirst",
-    title: "시작 추천",
+    title: "지금 시작",
     tone: "bg-sky-400/12 text-sky-200 ring-sky-300/20",
   },
   {
     key: "mostUrgentTask",
-    title: "시급",
+    title: "마감 우선",
     tone: "bg-amber-400/12 text-amber-200 ring-amber-300/20",
   },
   {
     key: "easiestQuickWin",
-    title: "빠른 완료",
+    title: "짧게 끝낼 일",
     tone: "bg-emerald-400/12 text-emerald-200 ring-emerald-300/20",
   },
 ] as const;
